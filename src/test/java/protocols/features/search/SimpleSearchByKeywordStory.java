@@ -9,6 +9,7 @@ import net.thucydides.core.annotations.Steps;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import protocols.tasks.OpenAdisApplication;
 import protocols.tasks.OpenTheApplication;
@@ -32,6 +33,7 @@ public class SimpleSearchByKeywordStory {
     @Before
     public void annaCanBrowseTheWeb() {
         anna.can(BrowseTheWeb.with(herBrowser));
+        herBrowser.manage().window().setSize(new Dimension(1280, 1024));
     }
 
     @Test
@@ -39,9 +41,9 @@ public class SimpleSearchByKeywordStory {
 
         givenThat(anna).wasAbleTo(openAdisApplication);
 
-        when(anna).attemptsTo(Search.forTheTerm("BDD In Action"));
+        when(anna).attemptsTo(Search.forTheTerm("Indication","Cancer"));
 
-        then(anna).should(eventually(seeThat(TheWebPage.title(), containsString("BDD In Action"))));
+        //then(anna).should(eventually(seeThat(TheWebPage.title(), containsString("BDD In Action"))));
 
     }
 }
