@@ -43,7 +43,7 @@ public class SimpleSearchByKeywordStory {
 
         when(anna).attemptsTo(Search.forTheTerm("Indication","Cancer"));
 
-        //then(anna).should(eventually(seeThat(TheWebPage.title(), containsString("BDD In Action"))));
+        then(anna).should(eventually(seeThat(TheWebPage.title(), containsString("Search Results - AdisInsight"))));
 
     }
 }

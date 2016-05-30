@@ -23,13 +23,15 @@ public class Search implements Task  {
 
     @Step("Search for #searchTerm")
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(
+        /*actor.attemptsTo(
                 Click.on(SearchBox.DROP_DOWN)
-                //Click.on(SearchBox.dropDownOption(searchType))
                 );
-        /*actor.attemptsTo(Enter.theValue(searchTerm)
+        actor.attemptsTo(
+                Click.on(SearchBox.dropDownOption(searchType))
+        );*/
+        actor.attemptsTo(Enter.theValue(searchTerm)
                 .into(SearchBox.SEARCH_FIELD)
-                .thenHit(ENTER));*/
+                .thenHit(ENTER));
     }
 
     public static Search forTheTerm(String searchType, String searchTerm) {
